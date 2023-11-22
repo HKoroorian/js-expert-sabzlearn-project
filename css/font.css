@@ -1,4 +1,9 @@
 @font-face {
   font-family: "IRANSans";
-  src: url(../fonts/IRANSans/IRANSansX-Regular.woff);
+  src: url("../fonts/IRANSans/IRANSansX-Regular.woff");
+}
+
+@font-face {
+  font-family: 'IRANSansMedium';
+  src: url('../fonts/IRANSans/IRANSansX-Medium.woff');
 }
