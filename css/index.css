@@ -1,4 +1,6 @@
 @import "./variables.css";
+@import url("./font.css");
+@import url("./top-bar.css");
 
 /* Start Default Style */
 
@@ -11,6 +13,7 @@ body {
   line-height: 1.6;
   font-size: 1.6rem;
   font-family: var(--primary-font);
+  direction: rtl;
 }
 
 *,
