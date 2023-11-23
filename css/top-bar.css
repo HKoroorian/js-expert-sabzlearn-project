@@ -34,7 +34,6 @@
 .top-bar__email,
 .top-bar__phone {
   display: flex;
-  align-items: center;
   gap: 0.8rem;
 }
 
