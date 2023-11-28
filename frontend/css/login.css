@@ -175,3 +175,10 @@
 }
 
 /* End Login Form Section */
+
+/* Library Custom Styles */
+.swal-button-container {
+  display: flex;
+  justify-content: center;
+}
+/* Library Custom Styles */
