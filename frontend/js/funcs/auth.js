@@ -84,14 +84,17 @@ const getme = async () => {
     console.log("token not exist !");
     return false;
   }
+  try {
+    const res = await fetch("http://localhost:4000/v1/auth/me", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
-  const res = await fetch("http://localhost:4000/v1/auth/me", {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
-  const data = await res.json();
-  return data;
+    const data = await res.json();
+    return data;
+  } catch (err) {
+    console.log("Error Message =>", err);
+  }
 };
 
 export { register, login, getme };
