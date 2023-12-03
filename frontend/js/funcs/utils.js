@@ -86,4 +86,27 @@ const getPopularCourses = async () => {
   }
 };
 
-export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating, getPopularCourses };
+const getPresellCourses = async () => {
+  console.log("getPresellCourses Run ....");
+  try {
+    const res = await fetch("http://localhost:4000/v1/courses/presell", { method: "GET" });
+    const presellCourses = await res.json();
+
+    return presellCourses;
+  } catch (err) {
+    console.log("Error getPresellCourses =>", err);
+  }
+};
+const getAllArticles = async () => {
+  console.log("getAllArticles Run ....");
+  try {
+    const res = await fetch("http://localhost:4000/v1/articles", { method: "GET" });
+    const allArticles = await res.json();
+
+    return allArticles;
+  } catch (err) {
+    console.log("Error getAllArticles =>", err);
+  }
+};
+
+export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating, getPopularCourses, getPresellCourses, getAllArticles };
