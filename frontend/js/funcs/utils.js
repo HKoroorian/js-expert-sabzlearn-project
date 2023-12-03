@@ -35,4 +35,15 @@ const isLogin = () => {
   }
 };
 
-export { showSwal, setToken, getToken, isLogin };
+const getTopbarLink = async () => {
+  try {
+    const res = await fetch("http://localhost:4000/v1/menus/topbar", { method: "GET" });
+    const topbarLinks = await res.json();
+
+    return topbarLinks;
+  } catch (err) {
+    console.log("Error getTopbarLink =>", err);
+  }
+};
+
+export { showSwal, setToken, getToken, isLogin, getTopbarLink };
