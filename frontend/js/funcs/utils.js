@@ -74,4 +74,16 @@ const starRating = (scores, emptyStarTag, fillStarTag) => {
   return resultStarRating;
 };
 
-export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating };
+const getPopularCourses = async () => {
+  console.log("getPopularCourses Run ....");
+  try {
+    const res = await fetch("http://localhost:4000/v1/courses/popular", { method: "GET" });
+    const popularCourses = await res.json();
+
+    return popularCourses;
+  } catch (err) {
+    console.log("Error getPopularCourses =>", err);
+  }
+};
+
+export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating, getPopularCourses };
