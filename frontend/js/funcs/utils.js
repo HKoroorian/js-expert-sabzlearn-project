@@ -108,5 +108,28 @@ const getAllArticles = async () => {
     console.log("Error getAllArticles =>", err);
   }
 };
+const getAllMenus = async () => {
+  console.log("getAllMenus Run ....");
+  try {
+    const res = await fetch("http://localhost:4000/v1/menus", { method: "GET" });
+    const allMenus = await res.json();
 
-export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating, getPopularCourses, getPresellCourses, getAllArticles };
+    return allMenus;
+  } catch (err) {
+    console.log("Error getAllMenus =>", err);
+  }
+};
+
+export {
+  showSwal,
+  setToken,
+  getToken,
+  isLogin,
+  getTopbarLink,
+  getAllCourses,
+  starRating,
+  getPopularCourses,
+  getPresellCourses,
+  getAllArticles,
+  getAllMenus,
+};

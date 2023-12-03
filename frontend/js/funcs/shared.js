@@ -1,5 +1,5 @@
 import { getme } from "../funcs/auth.js";
-import { isLogin, getTopbarLink } from "../funcs/utils.js";
+import { isLogin, getTopbarLink, getAllMenus } from "../funcs/utils.js";
 
 const showNameInHeader = () => {
   const headerProfileLinkelem = document.querySelector(".main-header__profile");
@@ -35,4 +35,36 @@ const showTopbarMenus = () => {
   });
 };
 
-export { showNameInHeader, showTopbarMenus };
+const showNavbarMenus = () => {
+  const menusWrapper = document.querySelector("#menus-wrapper");
+
+  getAllMenus().then((allMenus) => {
+    allMenus.map((menu) => {
+      menusWrapper.insertAdjacentHTML(
+        "beforeend",
+        `<li class="main-header__item">
+                  <a href="#" class="main-header__link"
+                    >${menu.title}
+                    ${
+                      menu.submenus.length !== 0
+                        ? `<i class="fas fa-angle-down main-header__link-icon"></i>
+                    <ul class="main-header__dropwodn">
+                    ${menu.submenus
+                      .map(
+                        (submenu) =>
+                          `<li class="main-header__dropdown-item">
+                      <a href="#" class="main-header__dropwodn-link">${submenu.title}</a>
+                    </li>`
+                      )
+                      .join("")}
+                    </ul>`
+                        : ""
+                    }
+                  </a>
+                </li>`
+      );
+    });
+  });
+};
+
+export { showNameInHeader, showTopbarMenus, showNavbarMenus };
