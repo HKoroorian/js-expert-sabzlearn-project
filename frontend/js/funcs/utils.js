@@ -46,4 +46,32 @@ const getTopbarLink = async () => {
   }
 };
 
-export { showSwal, setToken, getToken, isLogin, getTopbarLink };
+const getAllCourses = async () => {
+  console.log("getAllCourses Run ....");
+  try {
+    const res = await fetch("http://localhost:4000/v1/courses", { method: "GET" });
+    const allCourses = await res.json();
+
+    return allCourses;
+  } catch (err) {
+    console.log("Error getAllCourses =>", err);
+  }
+};
+
+const starRating = (scores, emptyStarTag, fillStarTag) => {
+  const emptyStar = Array(5 - scores)
+    .fill(0)
+    .map((score) => emptyStarTag)
+    .join("");
+
+  const fillStar = Array(scores)
+    .fill(0)
+    .map((score) => fillStarTag)
+    .join("");
+
+  const resultStarRating = emptyStar + fillStar;
+
+  return resultStarRating;
+};
+
+export { showSwal, setToken, getToken, isLogin, getTopbarLink, getAllCourses, starRating };
