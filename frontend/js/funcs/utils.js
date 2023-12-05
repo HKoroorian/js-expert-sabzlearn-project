@@ -120,6 +120,32 @@ const getAllMenus = async () => {
   }
 };
 
+const getUrlParam = (key) => {
+  const urlParam = new URLSearchParams(window.location.search).get(key);
+
+  return urlParam;
+};
+
+const getCategoryCourses = async (categoryName) => {
+  console.log("getCategoryCourses Run ....");
+  try {
+    const res = await fetch(`http://localhost:4000/v1/courses/category/${categoryName}`, { method: "GET" });
+    const categoryInfo = await res.json();
+
+    return categoryInfo;
+  } catch (err) {
+    console.log("Error getCategoryCourses =>", err);
+  }
+};
+
+const renderDisplayCourses = (mode)=>{
+  if (mode === 'column') {
+    
+  } else {
+    
+  }
+}
+
 export {
   showSwal,
   setToken,
@@ -132,4 +158,6 @@ export {
   getPresellCourses,
   getAllArticles,
   getAllMenus,
+  getUrlParam,
+  getCategoryCourses,
 };
