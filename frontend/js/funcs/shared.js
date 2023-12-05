@@ -43,7 +43,7 @@ const showNavbarMenus = () => {
       menusWrapper.insertAdjacentHTML(
         "beforeend",
         `<li class="main-header__item">
-                  <a href="#" class="main-header__link"
+                  <a href=category.html?cat=${menu.href} class="main-header__link"
                     >${menu.title}
                     ${
                       menu.submenus.length !== 0
