@@ -252,6 +252,46 @@ const renderCoursesWithDisplayType = (courses, displayType, wrapperElem) => {
   }
 };
 
+const coursesFiltering = (courseArray, methodKey) => {
+  let resultFilter = [];
+  switch (methodKey) {
+    case "default": {
+      resultFilter = [...courseArray];
+      return resultFilter;
+      break;
+    }
+    case "free": {
+      resultFilter = courseArray.filter((course) => course.price === 0);
+      return resultFilter;
+      break;
+    }
+    case "notFree": {
+      resultFilter = courseArray.filter((course) => course.price !== 0);
+      return resultFilter;
+      break;
+    }
+    case "oldest": {
+      resultFilter = [...courseArray].reverse();
+      return resultFilter;
+      break;
+    }
+    case "newest": {
+      resultFilter = [...courseArray];
+      return resultFilter;
+      break;
+    }
+    case "popularity": {
+      resultFilter = [...courseArray].sort((firstItem, secondItem) => secondItem.courseAverageScore - firstItem.courseAverageScore);
+      return resultFilter;
+      break;
+    }
+    default: {
+      return courseArray;
+      break;
+    }
+  }
+};
+
 export {
   showSwal,
   setToken,
@@ -266,5 +306,6 @@ export {
   getAllMenus,
   getUrlParam,
   getCategoryCourses,
-  renderCoursesWithDisplayType
+  renderCoursesWithDisplayType,
+  coursesFiltering,
 };
