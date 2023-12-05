@@ -48,6 +48,7 @@
 }
 
 .courses-top-bar__selection {
+  min-width: 271px;
   cursor: pointer;
   position: relative;
 }
@@ -55,6 +56,7 @@
 .courses-top-bar__selection-title {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 3.8rem;
   border-radius: 0.3rem;
   padding: 0.8rem 2rem;
